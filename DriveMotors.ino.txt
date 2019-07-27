@@ -1,0 +1,59 @@
+void halt(){
+  analogWrite(5,0);
+  analogWrite(11,0);
+  analogWrite(6,0);
+  analogWrite(3,0);
+}
+
+void backward(int time){
+  analogWrite(5,255);
+  analogWrite(11,0);
+  analogWrite(6,0);
+  analogWrite(3,255);
+  delay(time);
+  halt();
+}
+
+void forward(int time){
+  analogWrite(5,0);
+  analogWrite(11,255);
+  analogWrite(6,255);
+  analogWrite(3,0);
+  delay(time);
+  halt();
+}
+
+void left(int time){
+  analogWrite(5,0);
+  analogWrite(11,100);
+  analogWrite(6,0);
+  analogWrite(3,100);
+  delay(time);
+  halt();
+}
+
+void right(int time){
+  analogWrite(5,100);
+  analogWrite(11,0);
+  analogWrite(6,100);
+  analogWrite(3,0);
+  delay(time);
+  halt();
+}
+
+void setup() {
+  pinMode(5,OUTPUT);
+  pinMode(11,OUTPUT);
+  pinMode(6,OUTPUT);
+  pinMode(3,OUTPUT);
+
+  delay(1000);
+
+}
+
+void loop() {
+  forward(1000);
+  backward(1000);
+  right(1000);
+  left(1000);
+}
